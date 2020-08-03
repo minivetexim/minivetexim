@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<div class="w3-top">
+<div class="w3-bar w3-black">
+   <a href="https://www.minivetexim.com/" class="w3-bar-item w3-button w3-green w3-padding-16">Home</a>
+ 
+   <a><%= link_to "Login",new_user_session_path,class: "w3-bar-item w3-button w3-hide-small w3-padding-16 w3-right"%></a>
+
+   <a><%= link_to "Register", new_user_registration_path,class: "w3-bar-item w3-button w3-hide-small w3-padding-16 w3-right"%></a>
+
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium w3-padding-16 w3-green" onclick="myFunction()">&#9776;</a>
+</div>
+<div id="demo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-hover-green">
+   <a><%= link_to "Login",new_user_session_path,class: "w3-bar-item w3-button w3-black"%></a>
+   <a><%= link_to "Register", new_user_registration_path,class: "w3-bar-item w3-button w3-black"%></a>
+</div>
+</div>
+</br>
+</br>
+</br>
+<script>
+function myFunction() {
+  var x = document.getElementById("demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
+

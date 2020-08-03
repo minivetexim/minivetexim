@@ -1,0 +1,32 @@
+<div class="col-md-7 col-sm-7 col-md-offset-2">
+<div class="w3-panel w3-card w3-responsive">
+<div class="w3-container w3-margin-bottom">
+
+<h3>Add Business Information</h3>
+
+<%=simple_form_for @profile, url: profiles_path, html: { multipart: true } do |f| %>
+  <h5 class="text-danger"><%= f.error_notification %></h5>
+
+<%= f.label :company_name,'Business Name'%></br>
+<%= f.text_field :company_name,class: "form-control",:maxlength=>"50",placeholder:"Business Name can't be blank"%></br>
+
+<%= f.label :minimun_order,'Minimum Order'%></br>
+<%= f.text_field :minimun_order,class: "form-control",:maxlength=>"40",placeholder:"Minimun Order can't be blank"%></br>
+
+<%= f.label :target_country,'Top three country you Import/Export'%></br>
+<%= f.text_field :target_country,class: "form-control",:maxlength=>"60",placeholder:"Country name can't be blank"%></br>
+
+<%= f.label :about_company,'About Business'%></br>
+<%= f.text_area :about_company,class: "form-control",:maxlength=>"500",:rows => 4,:cols => 60,placeholder:"About Business Info can't be blank"%></br>
+
+<%= f.label :Add_image,'Business Logo or Office/Shop Image'%>
+<%= f.file_field :company_image%> </br>
+
+<%= f.submit"Add Business Info",class: "w3-btn w3-green"%>
+
+<%end%>
+
+
+</div>
+</div>
+</div>

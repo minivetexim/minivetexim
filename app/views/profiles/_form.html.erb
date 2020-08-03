@@ -1,0 +1,25 @@
+<h4 class="text-center"><a class="w3-btn w3-green" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Add Product</a></h4>
+
+<div class="col">
+<div class="collapse multi-collapse" id="multiCollapseExample1">
+<div class="card card-body">
+        
+<%=simple_form_for @products, url: products_path, html: { multipart: true } do |f| %>
+<h5 class="text-danger"><%= f.error_notification %></h5>
+
+<%= f.text_field :product_name,:maxlength=>"30",placeholder: 'Product Name',class: "form-control" %></br>
+
+<%= f.text_field :product_price,:maxlength=>"30",placeholder: 'Product Price',class: "form-control" %></br>
+
+
+<%= f.label :Add_image,'Product Image'%>
+<%= f.file_field :product_image%> </br>
+
+<p class="text-center"><%= f.submit"Publish",class: "w3-btn w3-green"%></p>
+
+<%end%>
+
+
+</div>
+ </div>
+  </div>

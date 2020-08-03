@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <link href="//fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+  </head>
+  <body class = "post">
+<div class="col-md-6 col-md-offset-3">
+<h5 class="text-center text-success">We showcase your profile in trade fair and event by free.</h5>
+<h2 class="text-center sign-head"><b>Sign up</b></h2>
+<%=simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+
+  <div class="field">
+    <b><%= f.label :name,"Name",class: "signin-text" %> : </b><br /> 
+    <%= f.text_field :name,autofocus: true,placeholder: "Full Name", :maxlength=>"40",class: "form-control" %>
+  </div></br>
+
+  <div class="field"> 
+    <b><%= f.label :country,"Country",class: "signin-text" %> : </b><br />
+    <%= f.text_field :country, placeholder: "Your Country", :maxlength=>"20",class: "form-control"  %>
+  </div></br>
+
+ <div class="field">
+  <b> <%= f.label :Business_Type,class: "signin-text" %> : </b><br />
+  <%= f.select :business_type,[["Select One", " "],
+['Import Business'],
+['Export Business'],
+['Import-Export Business'],
+['Import-Export sourcing agent Business'],
+['Import-Export distributor Business'],
+['Freight Forwarding Agency Business'],
+['Import-Export logistics Business'],
+['Import-Export warehouse Business'],
+['Import-Export marketing Business'],
+['Import-Export licenses Business'],
+['Import-Export packing and labeling Business'],
+['Import-Export Custom agent Business'],
+['Import-Export Custom warehousing Business'],
+['Import-Export Insurance broker Business'],
+['Import-Export Inspection Business']],{},class: "form form-group form-control"%>
+  </div>
+
+  <div class="field">
+    <b><%= f.label :email,class: "signin-text" %> : </b><br />
+    <%= f.email_field :email,:size=>"55", placeholder: "Email : example@gmail.com", :maxlength=>"80",class: "form-control"   %>
+  </div></br>
+
+  <div class="field">
+   <b> <%= f.label :password,class: "signin-text" %> : </b>
+    <% if @minimum_password_length %>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off",:size=>"55",:maxlength=>"50",class: "form-control",placeholder: "Password (6 characters minimum)" %>
+  </div></br>
+
+  <div class="field">
+   <b> <%= f.label :password_confirmation,class: "signin-text" %> : </b> <br />
+    <%= f.password_field :password_confirmation, autocomplete: "off",:size=>"55",:maxlength=>"50" ,class: "form-control",placeholder: "Password Confirmation" %>
+  </div></br>
+
+   <div class="field">
+    <b><%= f.label :Mobile_Number,class: "signin-text" %> : </b><br />
+    <%= f.text_field :mobile_number,:size=>"55",:maxlength=>"30",class: "form-control",placeholder: "Mobile_Number" %>
+  </div></br>
+
+
+<div class="form-actions text-center">
+    <%= f.button :submit, "Sign up",class: "btn-success btn btn-lg"%>
+  </div>
+<% end %>
+
+<h5 class="signin-text text-center"><b><%= render "devise/shared/links"%></b></h5>
+
+
+</div>
+
+
+
+</body>
+</html>

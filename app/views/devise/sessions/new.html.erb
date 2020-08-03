@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zxx">
+  <head>
+    <!--meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <link href="//fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+  </head>
+  <body class = "post">
+
+    <div class="col-md-6 col-md-offset-3">
+</br>
+</br>
+<h2 class="text-center sign-head"><b>Log in</b></h2>
+
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <div class="field">
+    <b><%= f.label :email,'Email',class: "signin-text" %> :</b> <br />
+
+    <%= f.email_field :email, autofocus: true,:size=>"50",:maxlength=>"55",class: "form-control",placeholder: "Email"%>
+  </div>
+</br>
+  <div class="field">
+    <b><%= f.label :password,class: "signin-text"%> : </b><br />
+    <%= f.password_field :password, autocomplete: "off",:size=>"50",:maxlength=>"55",class: "form-control",placeholder: "Password"%>
+  </div></br>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me,class: "signin-text" %>
+    </div>
+  <% end -%></br>
+  <div class="form-actions text-center">
+    <%= f.button :submit, "Log in",class: "btn-success btn btn-lg" %>
+  </div>
+<% end %>
+</br>
+<div class="signin-text text-center"><b><%= render "devise/shared/links"%></b></div>
+
+</div>
+
+</body>
+
+</html>
