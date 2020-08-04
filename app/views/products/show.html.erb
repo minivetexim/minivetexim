@@ -43,12 +43,24 @@
 
 <div class="col-md-8 col-sm-8">
 
-   <h4><b><%=profile.company_name.first(50).capitalize%></b></h4>
-   <p><b>Minimum Order - </b><%=profile.minimun_order.first(40).capitalize%></p>
-   <p><b>Import/Export Country - </b><%=profile.target_country.first(60).capitalize%></p>
-   <p><b>About Biz - </b><%=profile.about_company.first(560).capitalize%></p>
+  <h4 class="text-center w3-hide-medium w3-hide-large"><b><%=profile.company_name.first(50).capitalize%></b></h4>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>Minimum Order - </b><%=profile.minimun_order.first(40).capitalize%></p>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>Import/Export Country - </b><%=profile.target_country.first(60).capitalize%></p>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>About Biz - </b><%=profile.about_company.first(560).capitalize%></p>  
+ 
+
+
+ <h4 class="w3-hide-small"><b><%=profile.company_name.first(50).capitalize%></b></h4>
+   <p class="w3-hide-small"><b>Minimum Order - </b><%=profile.minimun_order.first(40).capitalize%></p>
+   <p class="w3-hide-small"><b>Import/Export Country - </b><%=profile.target_country.first(60).capitalize%></p>
+   <p class="w3-hide-small"><b>About Biz - </b><%=profile.about_company.first(560).capitalize%></p>  
+ 
 <%end%>
 <%end%>
+
+
+
+
 
 </div>
 
@@ -60,12 +72,13 @@
 
 
 <div class="col-md-12 col-sm-12">
+	
 <div class="w3-panel w3-card w3-responsive">
-
-
-
-<div class="col-md-12 col-sm-12">
 <h5 class="text-center minivetexim"><b>Products</b></h5>
+
+
+
+
 
 <%if @user.products.length == 0%>
 <% if user_signed_in? %> 
@@ -73,7 +86,7 @@
 <div class="col-md-7 col-sm-7">
 <p class="text-center"><%=image_tag("images/minivet_exim1.jpg",:size => "460x180",class: "img-responsive")%></p>
 <h5 class="text-danger">Your profile is not approved to show in trade fair or event, to get approval. Add a minimum of 4 photos related to your products in your profile page.</h5>
-</div>
+
 <%end%>
 <%end%>
 
@@ -81,11 +94,11 @@
 
 <%@user.products.each do |product|%>
 
-<div class="col-md-3 col-sm-3">
+<div class="col-md-4 col-sm-4">
 <div class="w3-card w3-responsive">
 
 
-<p class="text-center"><%=image_tag product.product_image.url(:medium),:size => "250x250", :crop =>:fill%></p>
+<p class="text-center"><%=image_tag product.product_image.url(:medium),:size => "270x270", :crop =>:fill%></p>
     <p class="text-center"><%=product.product_name%></p>
     <p class="text-center"><%=product.product_price%></p> 
 
@@ -101,6 +114,12 @@
 
 </div>
 </div>
+
+
+
+
+
+
 
 
 

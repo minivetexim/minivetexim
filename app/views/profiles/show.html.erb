@@ -5,7 +5,7 @@
 <div class="w3-panel w3-card w3-responsive">
 
 <h5 class="text-center minivetexim"><b>About person</b></h5>
-</br>	
+</br> 
 <h3 class="text-center"><b><%=@user.name.first(20).capitalize%></b></h3>
 <h4 class="text-center"><%=@user.business_type%></h4> 
 <h5 class="text-center"><%=@user.country.first(25).capitalize%></h5>
@@ -29,31 +29,41 @@
 <%end%>
 <%else%>
 
-<%@user.profiles.limit(1).each do |profile|%>
+<%@user.profiles.each do |profile|%>
 
 <div class="col-md-4 col-sm-4">
 <div class="w3-panel w3-responsive">
 
-   <p class="text-center"><%= image_tag profile.company_image.url(:medium),:size => "200x200", :crop =>:fill%></p>
+   <p class="text-center"><%= image_tag profile.company_image.url(:medium),:size => "210x210", :crop =>:fill%></p>
 </div>
 </div>
 
 <div class="col-md-8 col-sm-8">
 
-   <h4><b><%=profile.company_name.first(50).capitalize%></b></h4>
-   <p><b>Minimum Order - </b><%=profile.minimun_order.first(40).capitalize%></p>
-   <p><b>Import/Export Country - </b><%=profile.target_country.first(60).capitalize%></p>
-   <p><b>About Biz - </b><%=profile.about_company.first(560).capitalize%></p>  
+   <h4 class="text-center w3-hide-medium w3-hide-large"><b><%=profile.company_name.first(50).capitalize%></b></h4>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>Minimum Order - </b><%=profile.minimun_order.first(40).capitalize%></p>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>Import/Export Country - </b><%=profile.target_country.first(60).capitalize%></p>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>About Biz - </b><%=profile.about_company.first(560).capitalize%></p>  
   <% if current_user == profile.user %>
-  <p><%= link_to "Delete", profile_path(profile), method: :delete, data: { confirm: "Are you sure?"},class: "w3-button w3-red"%>      <%= link_to "Edit", edit_profile_path(profile),class: "w3-button w3-yellow"%></p>
+  <p class="text-center w3-hide-medium w3-hide-large"><%= link_to "Delete", profile_path(profile), method: :delete, data: { confirm: "Are you sure?"},class: "w3-button w3-red"%>      <%= link_to "Edit", edit_profile_path(profile),class: "w3-button w3-yellow"%></p>
+   <%end%>
+
+
+ <h4 class="w3-hide-small"><b><%=profile.company_name.first(50).capitalize%></b></h4>
+   <p class="w3-hide-small"><b>Minimum Order - </b><%=profile.minimun_order.first(40).capitalize%></p>
+   <p class="w3-hide-small"><b>Import/Export Country - </b><%=profile.target_country.first(60).capitalize%></p>
+   <p class="w3-hide-small"><b>About Biz - </b><%=profile.about_company.first(560).capitalize%></p>  
+  <% if current_user == profile.user %>
+  <p class="w3-hide-small"><%= link_to "Delete", profile_path(profile), method: :delete, data: { confirm: "Are you sure?"},class: "w3-button w3-red"%>      <%= link_to "Edit", edit_profile_path(profile),class: "w3-button w3-yellow"%></p>
    <%end%>
 <%end%>
 <%end%>
 
+
 </div>
 
 </div>
-</div>	
+</div>  
 
 </div>
 </div>
@@ -61,6 +71,7 @@
 
 <div class="col-md-12 col-sm-12">
 <div class="w3-panel w3-card w3-responsive">
+<h5 class="text-center minivetexim"><b>Products</b></h5>  
 
 <% if user_signed_in? %> 
 <% if current_user.id == @user.id%>
@@ -69,10 +80,6 @@
 </div>
 <%end%> 
 <%end%>
-
-<div class="col-md-12 col-sm-12">
-<h5 class="text-center minivetexim"><b>Products</b></h5>
-
 <%if @user.products.length == 0%>
 <% if user_signed_in? %> 
 <% if current_user.id == @user.id%>
@@ -82,18 +89,18 @@
 
 <%else%>
 
-<%@user.products.limit(12).each do |product|%>
+<%@user.products.each do |product|%>
 
-<div class="col-md-3 col-sm-3">
+<div class="col-md-4 col-sm-4">
 <div class="w3-card w3-responsive">
 
-
-<p class="text-center"><%=image_tag product.product_image.url(:medium),:size => "250x250", :crop =>:fill%></p>
+<p class="text-center"><%=image_tag product.product_image.url(:medium),:size => "270x270", :crop =>:fill%></p>
     <p class="text-center"><%=product.product_name%></p>
     <p class="text-center"><%=product.product_price%></p> 
 <% if current_user == product.user%> 
 <p class="text-center"><%= link_to "Delete",product_path(product), method: :delete, data: { confirm: "Are you sure?" },class: "w3-button w3-red" %>  <%= link_to "Edit", edit_product_path(product),class: "w3-button w3-yellow"%></p>
 <%end%>
+
 </div>
 </br>
 </div>
@@ -105,11 +112,6 @@
 
 
 </div>
-</div>
-
-
-
-
 
 
 
