@@ -33,7 +33,7 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk-s3'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk', '< 3.0'
 
 gem 'pg', '~> 0.18.4'
 # Use ActiveStorage variant
