@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
@@ -32,7 +33,8 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem "paperclip", "~> 6.0.0"
 gem "font-awesome-rails"
-
+gem 'aws-sdk', '~> 2.3'
+gem 'pg'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -47,11 +49,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
-group :production do
-  gem 'aws-sdk'
-
-  gem 'pg'
-end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
