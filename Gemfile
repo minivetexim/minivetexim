@@ -32,7 +32,6 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'aws-sdk', '< 2.0'
-gem 'aws-sdk-s3', '~> 1.0.0.rc2'
 gem 'paperclip'
 gem 'pg', '~> 0.18.4'
 # Use ActiveStorage variant
