@@ -30,10 +30,12 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'simple_form'
 gem 'jquery-rails'
-gem "paperclip", "~> 6.0.0"
 gem "font-awesome-rails"
-gem 'aws-sdk', '~> 2.3'
-gem 'pg'
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk-s3'
+gem 'aws-sdk', '< 2.0'
+
+gem 'pg', '~> 0.18.4'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
