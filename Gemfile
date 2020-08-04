@@ -34,6 +34,8 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem "paperclip", "~> 6.0.0"
 gem "font-awesome-rails"
+gem 'aws-sdk', '< 2.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
