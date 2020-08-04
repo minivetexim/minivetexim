@@ -29,7 +29,7 @@
 <%end%>
 <%else%>
 
-<%@user.profiles.each do |profile|%>
+<%@user.profiles.limit(1).each do |profile|%>
 
 <div class="col-md-4 col-sm-4">
 <div class="w3-panel w3-responsive">
@@ -82,7 +82,7 @@
 
 <%else%>
 
-<%@user.products.each do |product|%>
+<%@user.products.limit(12).each do |product|%>
 
 <div class="col-md-3 col-sm-3">
 <div class="w3-card w3-responsive">
