@@ -7,3 +7,36 @@
 
      overflow: hidden;
 }
+
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+
+
+
+
+.bottom-footer p {
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+.bottom-footer p a {
+    color: #ff5e00;
+    font-size: 14px;
+}
+.bottom-footer p a:hover{color: #fff;}
+a.move-top span {
+    display: inline-block;
+    font-size: 25px;
+    color: #fff;
+}
+.bottom-footer{
+    background: #000;
+}
