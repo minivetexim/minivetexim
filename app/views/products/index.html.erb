@@ -4,15 +4,28 @@
 <h3 class="text-center"><%=@users.count%> users</h3>
 </br>
 <%@users.each do |user|%>
+<%user.profiles.each do |profile| %>
+
 <div class="col-md-3 col-sm-3">
 <div class="w3-panel w3-card w3-responsive">
-<h3 class="text-center"><b><%=user.name%></b></h3>
+
+   <div class="text-center"><%=link_to (image_tag profile.company_image.url(:medium),:size =>"160x160",:crop =>:fill,class: 'img-circle'),profile_path(user.id)%></div>
+<h4 class="text-center w3-hide-medium w3-hide-large"><b><%=profile.company_name.first(50).capitalize%></b></h4>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>Minimum Order - </b><%=profile.minimun_order.first(40).capitalize%></p>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>Import/Export Country - </b><%=profile.target_country.first(60).capitalize%></p>
+   <p class="text-center w3-hide-medium w3-hide-large"><b>About Biz - </b><%=profile.about_company.first(560).capitalize%></p>  
+ <%end%>
+ 
+<h4 class="text-center"><%=link_to user.name.first(20).capitalize,profile_path(user.id),class: "w3-text-blue"%></h4>
 <h4 class="text-center"><%=user.business_type%></h4> 
 <h5 class="text-center"><%=user.country%></h5>
 <h5 class="text-center"><%=user.email%></h5>
 <h5 class="text-center"><%=user.mobile_number%></h5>
+
+
 </div>
 </div>
+
 
 <%end%>
 
