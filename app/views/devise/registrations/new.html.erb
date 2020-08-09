@@ -10,24 +10,23 @@
   </head>
   <body class = "post">
 <div class="col-md-6 col-md-offset-3">
-<h5 class="text-center text-success">Showcase your profile directory in trade fair and event.</h5>
+<h5 class="text-center text-success">showcase your profile directory in trade fair and event by free.</h5>
 <h2 class="text-center sign-head"><b>Sign up</b></h2>
 <%=simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
 
   <div class="field">
-    <b><%= f.label :name,"Name",class: "signin-text" %> : </b><br /> 
-    <%= f.text_field :name,autofocus: true,placeholder: "Full Name", :maxlength=>"40",class: "form-control" %>
+   
+    <b><%= f.text_field :name,autofocus: true,placeholder: "Full Name", :maxlength=>"40",class: "form-control" %></b>
   </div></br>
 
   <div class="field"> 
-    <b><%= f.label :country,"Country",class: "signin-text" %> : </b><br />
-    <%= f.text_field :country, placeholder: "Your Country", :maxlength=>"20",class: "form-control"  %>
+    
+    <b><%= f.text_field :country, placeholder: "Your Country", :maxlength=>"20",class: "form-control"  %></b>
   </div></br>
 
  <div class="field">
-  <b> <%= f.label :Business_Type,class: "signin-text" %> : </b><br />
   <%= f.select :business_type,[["Select One", " "],
 ['Import Business'],
 ['Export Business'],
@@ -47,25 +46,27 @@
   </div>
 
   <div class="field">
-    <b><%= f.label :email,class: "signin-text" %> : </b><br />
-    <%= f.email_field :email,:size=>"55", placeholder: "Email : example@gmail.com", :maxlength=>"80",class: "form-control"   %>
+   <b><%= f.email_field :email,:size=>"55", placeholder: "Email : example@gmail.com", :maxlength=>"80",class: "form-control"%></b>
   </div></br>
 
   <div class="field">
-   <b> <%= f.label :password,class: "signin-text" %> : </b>
     <% if @minimum_password_length %>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off",:size=>"55",:maxlength=>"50",class: "form-control",placeholder: "Password (6 characters minimum)" %>
+    <% end %>
+    <b><%= f.password_field :password, autocomplete: "off",:size=>"55",:maxlength=>"50",class: "form-control",placeholder: "Password (6 characters minimum)" %></b>
   </div></br>
 
   <div class="field">
-   <b> <%= f.label :password_confirmation,class: "signin-text" %> : </b> <br />
-    <%= f.password_field :password_confirmation, autocomplete: "off",:size=>"55",:maxlength=>"50" ,class: "form-control",placeholder: "Password Confirmation" %>
+    <b><%= f.password_field :password_confirmation, autocomplete: "off",:size=>"55",:maxlength=>"50" ,class: "form-control",placeholder: "Password Confirmation" %></b>
   </div></br>
+
+
+ <div class="field">
+   <b><%= f.text_field :product_name,:size=>"70",:maxlength=>"30",class: "form-control",placeholder: "Import/Export Product Name"%></b>
+  </div></br>
+
 
    <div class="field">
-    <b><%= f.label :Mobile_Number,class: "signin-text" %> : </b><br />
-    <%= f.text_field :mobile_number,:size=>"55",:maxlength=>"30",class: "form-control",placeholder: "Mobile_Number" %>
+    <b><%= f.text_field :mobile_number,:size=>"55",:maxlength=>"30",class: "form-control",placeholder: "Mobile Number" %></b>
   </div></br>
 
 
