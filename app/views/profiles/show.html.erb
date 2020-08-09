@@ -29,12 +29,19 @@
 <%end%>
 <%else%>
 
-<%@user.profiles.each do |profile|%>
+<%@user.profiles.limit(1).each do |profile|%>
 
 <div class="col-md-4 col-sm-4">
-<div class="w3-panel w3-responsive">
+<div class="w3-responsive">
+  
+<%if profile.company_image.present?%>
 
-   <p class="text-center"><%= image_tag profile.company_image.url(:medium),:size => "210x210", :crop =>:fill%></p>
+ <p class="text-center"><%= image_tag profile.company_image.url(:medium),:size => "210x210", :crop =>:fill,class: 'img-circle'%></p>
+      <%else%>
+    </br>
+      <p  class="text-center">  <%=image_tag("images/minivetexim_company.png",:size => "180x180",:crop =>:fill,class: 'img-circle')%></p>
+ 
+      <%end%>  
 </div>
 </div>
 
@@ -83,13 +90,13 @@
 <%if @user.products.length == 0%>
 <% if user_signed_in? %> 
 <% if current_user.id == @user.id%>
-<h5 class="text-center" >Add minimum 4 Products maximum 12 products</h5>
+<h5 class="text-center" >Add Products, maximum 12 products</h5>
 <%end%>
 <%end%>
 
 <%else%>
 
-<%@user.products.each do |product|%>
+<%@user.products.limit(12).each do |product|%>
 
 <div class="col-md-4 col-sm-4">
 <div class="w3-card w3-responsive">
@@ -112,6 +119,9 @@
 
 
 </div>
+
+
+
 
 
 

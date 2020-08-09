@@ -21,7 +21,7 @@
 <div class="w3-panel w3-card w3-responsive">
 
 <h5 class="text-center minivetexim"><b>Business Information</b></h5>
-<%if @user.profiles.length == 0%>
+<%if @user.profiles.limit(1).length == 0%>
 <% if user_signed_in? %> 
 <% if current_user.id == @user.id%>
 <div class="col-md-8 col-sm-8">
@@ -32,12 +32,18 @@
 <%end%>
 <%else%>
 
-<%@user.profiles.each do |profile|%>
+<%@user.profiles.limit(1).each do |profile|%>
 
 <div class="col-md-4 col-sm-4">
-<div class="w3-panel w3-responsive">
+<div class="w3-responsive">
+<%if profile.company_image.present?%>
 
-   <p class="text-center"><%= image_tag profile.company_image.url(:medium),:size => "200x200", :crop =>:fill%></p>
+ <p class="text-center"><%= image_tag profile.company_image.url(:medium),:size => "210x210", :crop =>:fill,class: 'img-circle'%></p>
+      <%else%>
+    </br>
+       <p  class="text-center"> <%=image_tag("images/minivetexim_company.png",:size => "180x180",:crop =>:fill,class: 'img-circle')%></p>
+ 
+      <%end%>  
 </div>
 </div>
 
@@ -72,7 +78,7 @@
 
 
 <div class="col-md-12 col-sm-12">
-	
+  
 <div class="w3-panel w3-card w3-responsive">
 <h5 class="text-center minivetexim"><b>Products</b></h5>
 
@@ -85,14 +91,14 @@
 <% if current_user.id == @user.id%>
 <div class="col-md-7 col-sm-7">
 <p class="text-center"><%=image_tag("images/minivet_exim1.jpg",:size => "460x180",class: "img-responsive")%></p>
-<h5 class="text-danger">Your profile is not approved to show in trade fair or event, to get approval. Add a minimum of 4 photos related to your products in your profile page.</h5>
+<h5 class="text-danger">Your profile is not approved to show in trade fair or event, to get approval. Add a photos related to your products in your profile page.</h5>
 
 <%end%>
 <%end%>
 
 <%else%>
 
-<%@user.products.each do |product|%>
+<%@user.products.limit(12).each do |product|%>
 
 <div class="col-md-4 col-sm-4">
 <div class="w3-card w3-responsive">
@@ -114,12 +120,6 @@
 
 </div>
 </div>
-
-
-
-
-
-
 
 
 
