@@ -9,7 +9,7 @@ class User < ApplicationRecord
 validates_presence_of :name,message: "can't be blank"
 validates_presence_of :country,message: "Name can't be blank"
 validates_presence_of :business_type,message: "can't be blank"
-    
+validates_presence_of :product_name,message: "can't be blank"
 validates_presence_of :mobile_number,message: "can't be blank"
 
        
