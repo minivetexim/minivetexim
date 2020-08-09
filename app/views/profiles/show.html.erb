@@ -87,14 +87,7 @@
 </div>
 <%end%> 
 <%end%>
-<%if @user.products.length == 0%>
-<% if user_signed_in? %> 
-<% if current_user.id == @user.id%>
-<h5 class="text-center" >Add Products, maximum 12 products</h5>
-<%end%>
-<%end%>
 
-<%else%>
 
 <%@user.products.limit(12).each do |product|%>
 
@@ -113,9 +106,6 @@
 </div>
 
 <%end%>
-
-<%end%>
-
 
 
 </div>
